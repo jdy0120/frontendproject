@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Item } from "./types/type";
 import InsertItem from "./components/InsertItem";
 import ItemList from "./components/ItemList";
+import { Item } from "./types/type";
 
 function App() {
   const initialState = JSON.parse(localStorage.getItem("todos") || "");
