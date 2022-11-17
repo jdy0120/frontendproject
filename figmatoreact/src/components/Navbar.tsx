@@ -52,25 +52,58 @@ const Container = styled.div`
     height: 1.4rem;
     cursor: pointer;
   }
+`;
+const Menu = styled.div<{ isOpen: boolean }>`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 
-  a {
-    text-decoration: none;
-    color: #858586;
-    font-size: 0.9rem;
-    padding: 0.7rem 1.5rem;
-    transition: all 0.2s ease-in;
-    border-radius: 0.5rem;
-    font-weight: 500;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    box-shadow: -4px 8px 15px 1 rgb(0, 0, 0, 0.07);
+    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    width: 100%;
+    transition: max-height 0.3s ease-in-out;
 
-    &:hover {
-      color: #7781d4;
-      background: #e7e9fc;
+    background-color: rgba(255, 255, 255, 0.9);
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      -webkit-backdrop-filter: blur(15px);
+      backdrop-filter: blur(15px);
+      background-color: rgba(255, 255, 255, 0.4);
     }
   }
 `;
-const Menu = styled.div<{ isOpen: boolean }>``;
-const LinkWrapper = styled.div``;
-const MenuLink = styled.a``;
+const LinkWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 1.5rem 0;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+`;
+const MenuLink = styled.a`
+  text-decoration: none;
+  color: #858586;
+  font-size: 0.9rem;
+  padding: 0.7rem 1.5rem;
+  transition: all 0.2s ease-in;
+  border-radius: 0.5rem;
+  font-weight: 500;
+
+  &:hover {
+    color: #7781d4;
+    background: #e7e9fc;
+  }
+`;
+
 const Button = styled.button`
   font-size: 0.8rem;
   background-color: #f774c5;
@@ -89,7 +122,7 @@ const Button = styled.button`
   }
 
   @media (max-width: 670px) {
-    /* padding: 0.3rem; */
+    padding: 0.3rem;
   }
 `;
 const Hamburger = styled.div`
@@ -104,7 +137,7 @@ const Hamburger = styled.div`
     margin-bottom: 4px;
     border-radius: 5px;
   }
-  @media (max-width: 760px) {
+  @media (max-width: 768px) {
     display: flex;
   }
 `;
