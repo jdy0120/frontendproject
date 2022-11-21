@@ -13,8 +13,9 @@ const Container = styled.div`
 `;
 
 const Main = () => {
-  const [calcSum, setCalcSum] = useState(1234);
+  const [calcSum, setCalcSum] = useState(`0`);
   const [operation, setOperation] = useState(``);
+  const [prevSum, setPrevSum] = useState(0);
 
   return (
     <Container>
@@ -24,6 +25,8 @@ const Main = () => {
         setOperation={setOperation}
         calcSum={calcSum}
         setCalcSum={setCalcSum}
+        prevSum={prevSum}
+        setPrevSum={setPrevSum}
       />
     </Container>
   );

@@ -40,17 +40,20 @@ const allButton = [
 interface Props {
   operation: string;
   setOperation: React.Dispatch<React.SetStateAction<string>>;
-  calcSum: number;
-  setCalcSum: React.Dispatch<React.SetStateAction<number>>;
+  calcSum: string;
+  setCalcSum: React.Dispatch<React.SetStateAction<string>>;
+  prevSum: number;
+  setPrevSum: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const ButtonBox = ({ operation, setOperation, calcSum, setCalcSum }: Props) => {
+const ButtonBox = ({ operation, setOperation, calcSum, setCalcSum, prevSum, setPrevSum }: Props) => {
   return (
     <Container>
       <Box>
         {allButton.map((data) => {
           return (
             <Button
+              key={data.img}
               img={data.img}
               color={data.color}
               size={data.size}
@@ -58,6 +61,8 @@ const ButtonBox = ({ operation, setOperation, calcSum, setCalcSum }: Props) => {
               setOperation={setOperation}
               calcSum={calcSum}
               setCalcSum={setCalcSum}
+              prevSum={prevSum}
+              setPrevSum={setPrevSum}
             />
           );
         })}
