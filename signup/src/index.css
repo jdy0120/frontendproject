@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none, sans-serif;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "courier New", monospace;
+}

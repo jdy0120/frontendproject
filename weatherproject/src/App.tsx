@@ -11,6 +11,7 @@ import Snow from "./assets/snow.jpg";
 import Thunderstorm from "./assets/thunderstorm.jpg";
 import InsertCityName from "./components/InsertCityName";
 import PrintWeather from "./components/PrintWeather";
+import TopTitle from "./components/TopTitle";
 
 const weatherImg: {
   [key: string]: string;
@@ -34,9 +35,7 @@ function App() {
   const [weatherName, setWeatherName] = useState("");
 
   const getWeather = async () => {
-    const response = await axios.get(
-      `${api.url}?q=${cityName}&appid=${api.api_key}`
-    );
+    const response = await axios.get(`${api.url}?q=${cityName}&appid=${api.api_key}`);
 
     setWeather(response.data);
     setWeatherName(response.data.weather[0].main);
@@ -49,6 +48,7 @@ function App() {
   return (
     <Container img={weatherImg[weatherName]}>
       <Box>
+        <TopTitle />
         <ProjectTitle>{`WEATHER PROJECT`}</ProjectTitle>
         <PrintWeather weather={weather} />
         <InsertCityName setCityName={setCityName} />
