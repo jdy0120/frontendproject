@@ -45,7 +45,9 @@ interface Props {
   calcSum: string;
 }
 const Screen = ({ calcSum }: Props) => {
-  const calcSumNumber = calcSum.substring(0, 10).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  const calcSumNumber = calcSum
+    .substring(0, 10)
+    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
   return (
     <Container>
       <Number numberLen={calcSumNumber.length}>{calcSumNumber}</Number>
