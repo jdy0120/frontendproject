@@ -54,7 +54,16 @@ const DateBox = ({ nowDate, setNowDate, clickedDate, setClickedDate }: Props) =>
         return <WeekBox key={week} weekName={week} />;
       })}
       {allDay.map((day: Date) => {
-        return <AllDay key={day.getTime()} day={day} nowDate={nowDate} setNowDate={setNowDate} clickedDate={clickedDate} setClickedDate={setClickedDate} />;
+        return (
+          <AllDay
+            key={day.getTime()}
+            day={day}
+            nowDate={nowDate}
+            setNowDate={setNowDate}
+            clickedDate={clickedDate}
+            setClickedDate={setClickedDate}
+          />
+        );
       })}
     </Container>
   );

@@ -50,17 +50,27 @@ const allDay = ({ day, nowDate, setNowDate, clickedDate, setClickedDate }: Props
   const nowTime = new Date();
 
   const sameMonth = nowDate.getMonth() === day.getMonth();
-  const sameDay = nowTime.getFullYear() === day.getFullYear() && nowTime.getMonth() === day.getMonth() && nowTime.getDate() === day.getDate();
+  const sameDay =
+    nowTime.getFullYear() === day.getFullYear() &&
+    nowTime.getMonth() === day.getMonth() &&
+    nowTime.getDate() === day.getDate();
 
   const clickDay: boolean = clickedDate
-    ? clickedDate.getFullYear() === day.getFullYear() && clickedDate.getMonth() === day.getMonth() && clickedDate.getDate() === day.getDate()
+    ? clickedDate.getFullYear() === day.getFullYear() &&
+      clickedDate.getMonth() === day.getMonth() &&
+      clickedDate.getDate() === day.getDate()
     : false;
 
   const clickDate = () => {
     setClickedDate(day);
   };
   return (
-    <Container onClick={() => clickDate()} sameMonth={sameMonth} sameDay={sameDay} clickDay={clickDay}>
+    <Container
+      onClick={() => clickDate()}
+      sameMonth={sameMonth}
+      sameDay={sameDay}
+      clickDay={clickDay}
+    >
       <p>{day.getDate()}</p>
     </Container>
   );

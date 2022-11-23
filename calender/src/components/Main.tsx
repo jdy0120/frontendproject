@@ -17,7 +17,12 @@ const Main = () => {
   return (
     <Container>
       <ControlDate nowDate={nowDate} setNowDate={setNowDate} />
-      <DateBox nowDate={nowDate} setNowDate={setNowDate} clickedDate={clickedDate} setClickedDate={setClickedDate} />
+      <DateBox
+        nowDate={nowDate}
+        setNowDate={setNowDate}
+        clickedDate={clickedDate}
+        setClickedDate={setClickedDate}
+      />
     </Container>
   );
 };
