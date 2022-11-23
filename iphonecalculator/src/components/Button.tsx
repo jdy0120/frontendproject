@@ -65,7 +65,6 @@ const Container = styled.div<ContainerProps>`
     color: black;
   }
   img {
-    /* border: 1px solid red; */
     max-width: 50%;
     height: auto;
   }
