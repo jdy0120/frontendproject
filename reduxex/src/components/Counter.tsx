@@ -21,7 +21,7 @@ const Counter = () => {
 
   return (
     <div>
-      <div>{count}</div>
+      <div className="number">{count}</div>
 
       <button onClick={onIncrease}>{`+1`}</button>
       <button onClick={onDecrease}>{`-1`}</button>

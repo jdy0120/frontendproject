@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext } from "react";
 
 interface ContextProps {
   theme: string;
-  toggleTheme?: any;
+  toggleTheme?: () => void;
 }
 
 export const ThemeContext = createContext<ContextProps>({ theme: "light" });
