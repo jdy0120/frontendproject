@@ -1,16 +1,36 @@
 import React from "react";
+import styled from "styled-components";
+import MenuItem from "./MenuItem";
+
+const Container = styled.div`
+  ul {
+    margin: 10px;
+    padding: 10px;
+  }
+`;
+
+const menuList = [
+  { menuName: "Home", path: "/" },
+  { menuName: "Portfolio", path: "/portfolio" },
+  { menuName: "Info", path: "/info" },
+  { menuName: "ETC", path: "/etc" },
+];
 
 const Menu = () => {
   return (
-    <div>
+    <Container>
       <ul>
-        <li>{`Menu1`}</li>
-        <li>{`Menu2`}</li>
-        <li>{`Menu3`}</li>
-        <li>{`Menu4`}</li>
-        <li>{`Menu5`}</li>
+        {menuList.map((data) => {
+          return (
+            <MenuItem
+              key={data.menuName}
+              menuName={data.menuName}
+              path={data.path}
+            />
+          );
+        })}
       </ul>
-    </div>
+    </Container>
   );
 };
 

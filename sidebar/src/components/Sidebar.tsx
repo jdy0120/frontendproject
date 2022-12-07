@@ -7,7 +7,6 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-  position: relative;
 `;
 
 const NavBar = styled.div`
@@ -17,6 +16,7 @@ const NavBar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 `;
 
 const ContentContainer = styled.div`
@@ -31,8 +31,8 @@ interface Props {
 const Sidebar = ({ children }: Props) => {
   return (
     <Container>
-      <Switch />
       <NavBar>
+        <Switch />
         <Menu />
       </NavBar>
       <ContentContainer>{children}</ContentContainer>
