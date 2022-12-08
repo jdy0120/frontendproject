@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import WeekBox from "./WeekBox";
 import AllDay from "./AllDay";
+import { Holiday } from "../types/type";
 
 const Container = styled.div`
   width: 100%;
@@ -15,7 +16,16 @@ interface Props {
   setNowDate: React.Dispatch<React.SetStateAction<Date>>;
   clickedDate: Date | undefined;
   setClickedDate: React.Dispatch<React.SetStateAction<Date | undefined>>;
+  holiday: Holiday[];
 }
+
+const dateToyyyymmdd = (date: Date): string => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}${month}${day}`;
+};
 
 const monthList = (nowDate: Date) => {
   const nowYear = nowDate.getFullYear();
@@ -43,10 +53,22 @@ const monthList = (nowDate: Date) => {
   return result;
 };
 
-const DateBox = ({ nowDate, setNowDate, clickedDate, setClickedDate }: Props) => {
+const DateBox = ({
+  nowDate,
+  setNowDate,
+  clickedDate,
+  setClickedDate,
+  holiday,
+}: Props) => {
   const allDay: Date[] = monthList(nowDate);
 
   const weeks = ["일", "월", "화", "수", "목", "금", "토"];
+
+  const holidayLocDate = holiday.map((data: Holiday) => {
+    return String(data?.locdate);
+  });
+
+  console.log(holidayLocDate);
 
   return (
     <Container>
@@ -54,6 +76,10 @@ const DateBox = ({ nowDate, setNowDate, clickedDate, setClickedDate }: Props) =>
         return <WeekBox key={week} weekName={week} />;
       })}
       {allDay.map((day: Date) => {
+        const yyyymmdd = dateToyyyymmdd(day);
+        const todayIsHoliday = holidayLocDate.indexOf(yyyymmdd);
+        const isHoliday = todayIsHoliday === -1 ? false : true;
+
         return (
           <AllDay
             key={day.getTime()}
@@ -62,6 +88,7 @@ const DateBox = ({ nowDate, setNowDate, clickedDate, setClickedDate }: Props) =>
             setNowDate={setNowDate}
             clickedDate={clickedDate}
             setClickedDate={setClickedDate}
+            isHoliday={isHoliday}
           />
         );
       })}

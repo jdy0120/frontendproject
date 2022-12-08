@@ -9,7 +9,7 @@ const requestData = {
   solMonth: 12,
 };
 
-type Data = {
+type Holiday = {
   dataKind: string;
   dataName: string;
   isHoliday: string;
@@ -18,23 +18,23 @@ type Data = {
 };
 
 const App = () => {
-  const [holiday, setHoliday] = useState<Data[]>();
+  const [holiday, setHoliday] = useState<Holiday[]>();
 
   const getData = async () => {
     try {
       const response = await axios.get(
         `${requestData.url}ServiceKey=${requestData.serviceKey}&solYear=${requestData.solYear}&solMonth=${requestData.solMonth}`
       );
+      console.log(response);
 
       const saveData = [].concat(response.data.response.body.items.item);
-
+      console.log(response);
       setHoliday(saveData);
     } catch (e) {}
   };
 
   useEffect(() => {
     getData();
-    console.log(holiday);
   }, []);
 
   return (
