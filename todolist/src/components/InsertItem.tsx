@@ -1,20 +1,26 @@
 import { useState } from "react";
-import { Item } from "../types/type";
 import { v4 as uuid } from "uuid";
+import { addItem } from "../modules/itemReducer";
+import { useDispatch } from "react-redux";
 
-interface Props {
-  items: Item[];
-  setItems: React.Dispatch<React.SetStateAction<Item[]>>;
-}
+// interface Props {
+//   items: Item[];
+//   setItems: React.Dispatch<React.SetStateAction<Item[]>>;
+// }
 
-const InsertItem = ({ items, setItems }: Props) => {
+const InsertItem = () => {
   const [itemName, setItemName] = useState("");
+
+  const dispatch = useDispatch();
+
   const changeItemName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setItemName(e.target.value);
   };
 
   const clickButton = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setItems([...items, { itemId: uuid(), itemName, clear: false }]);
+    // setItems([...items, { itemId: uuid(), itemName, clear: false }]);
+    const itemId = uuid();
+    dispatch(addItem(itemId, itemName, false));
 
     setItemName("");
     console.log(itemName);

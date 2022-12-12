@@ -1,29 +1,23 @@
 import { Item } from "../types/type";
+import { RootState } from "../modules";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteItem, clearItem } from "../modules/itemReducer";
 
-interface Props {
-  items: Item[];
-  setItems: React.Dispatch<React.SetStateAction<Item[]>>;
-}
-
-const ItemList = ({ items, setItems }: Props) => {
+const ItemList = () => {
+  const todo = useSelector((state: RootState) => state.itemReducer.todo);
+  const dispatch = useDispatch();
   const clickDelete = (data: Item) => {
-    setItems(items.filter((item: Item) => item.itemId !== data.itemId));
+    // setItems(items.filter((item: Item) => item.itemId !== data.itemId));
+    dispatch(deleteItem(data.itemId));
   };
 
   const clickComplete = (data: Item) => {
-    setItems(
-      items.map((item: Item) => {
-        if (item.itemId === data.itemId) {
-          return { ...item, clear: !item.clear };
-        }
-        return item;
-      })
-    );
+    dispatch(clearItem(data.itemId));
   };
 
   return (
     <ul>
-      {items.map((data: Item) => {
+      {todo.map((data: Item) => {
         return (
           <li className="list-item" key={data.itemId}>
             <p className={`${data.clear ? "complete" : ""}`}>{data.itemName}</p>
