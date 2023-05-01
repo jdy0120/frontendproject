@@ -9,7 +9,12 @@ interface Props {
 const Input = ({ type = "text", placeholder }: Props) => {
   return (
     <Container>
-      <StyledInput type={type} placeholder={placeholder && placeholder} required autoComplete="off" />
+      <StyledInput
+        type={type}
+        placeholder={placeholder && placeholder}
+        required
+        autoComplete="off"
+      />
       <Status />
     </Container>
   );
@@ -45,13 +50,12 @@ const Status = styled.div`
   background: #9d9d9d;
   border-radius: 10px;
   margin-left: 1rem;
+  ${StyledInput}:invalid + & {
+    background: #fe2f75;
+  }
 
   ${StyledInput}:focus + & {
     background: #ffa689;
-  }
-
-  ${StyledInput}:invalid + & {
-    background: #fe2f75;
   }
 
   ${StyledInput}:valid + & {
