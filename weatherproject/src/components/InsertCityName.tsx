@@ -28,7 +28,7 @@ export default InsertCityName;
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const InputCityName = styled.input`
