@@ -56,7 +56,7 @@ const Sidebar = () => {
         })}
       </SidebarList>
       <LogoutContainer>
-        <Button onClick={handleLogout}></Button>
+        <Button text={"Logout"} onClick={handleLogout}></Button>
       </LogoutContainer>
     </SidebarContainer>
   );
