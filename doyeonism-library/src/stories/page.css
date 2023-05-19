@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 section {
+=======
+.storybook-page {
+>>>>>>> origin/master
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 24px;
@@ -8,7 +12,11 @@ section {
   color: #333;
 }
 
+<<<<<<< HEAD
 section h2 {
+=======
+.storybook-page h2 {
+>>>>>>> origin/master
   font-weight: 700;
   font-size: 32px;
   line-height: 1;
@@ -17,25 +25,45 @@ section h2 {
   vertical-align: top;
 }
 
+<<<<<<< HEAD
 section p {
   margin: 1em 0;
 }
 
 section a {
+=======
+.storybook-page p {
+  margin: 1em 0;
+}
+
+.storybook-page a {
+>>>>>>> origin/master
   text-decoration: none;
   color: #1ea7fd;
 }
 
+<<<<<<< HEAD
 section ul {
+=======
+.storybook-page ul {
+>>>>>>> origin/master
   padding-left: 30px;
   margin: 1em 0;
 }
 
+<<<<<<< HEAD
 section li {
   margin-bottom: 8px;
 }
 
 section .tip {
+=======
+.storybook-page li {
+  margin-bottom: 8px;
+}
+
+.storybook-page .tip {
+>>>>>>> origin/master
   display: inline-block;
   border-radius: 1em;
   font-size: 11px;
@@ -48,14 +76,22 @@ section .tip {
   vertical-align: top;
 }
 
+<<<<<<< HEAD
 section .tip-wrapper {
+=======
+.storybook-page .tip-wrapper {
+>>>>>>> origin/master
   font-size: 13px;
   line-height: 20px;
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
+<<<<<<< HEAD
 section .tip-wrapper svg {
+=======
+.storybook-page .tip-wrapper svg {
+>>>>>>> origin/master
   display: inline-block;
   height: 12px;
   width: 12px;
@@ -64,6 +100,10 @@ section .tip-wrapper svg {
   margin-top: 3px;
 }
 
+<<<<<<< HEAD
 section .tip-wrapper svg path {
+=======
+.storybook-page .tip-wrapper svg path {
+>>>>>>> origin/master
   fill: #1ea7fd;
 }
