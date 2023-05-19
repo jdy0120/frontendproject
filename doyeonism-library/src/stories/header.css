@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 .wrapper {
-=======
-.storybook-header {
->>>>>>> origin/master
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 15px 20px;
@@ -11,20 +7,12 @@
   justify-content: space-between;
 }
 
-<<<<<<< HEAD
 svg {
-=======
-.storybook-header svg {
->>>>>>> origin/master
   display: inline-block;
   vertical-align: top;
 }
 
-<<<<<<< HEAD
 h1 {
-=======
-.storybook-header h1 {
->>>>>>> origin/master
   font-weight: 700;
   font-size: 20px;
   line-height: 1;
@@ -33,19 +21,11 @@ h1 {
   vertical-align: top;
 }
 
-<<<<<<< HEAD
 button + button {
   margin-left: 10px;
 }
 
 .welcome {
-=======
-.storybook-header button + button {
-  margin-left: 10px;
-}
-
-.storybook-header .welcome {
->>>>>>> origin/master
   color: #333;
   font-size: 14px;
   margin-right: 10px;
