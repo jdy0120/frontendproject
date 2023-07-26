@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface NumberSquareStyleProps {
   isOpen: boolean;
   borderStyles: string;
+  isvalidsquare: boolean;
 }
 
 export const NumberSquareStyle = {
@@ -29,6 +30,14 @@ export const NumberSquareStyle = {
       cursor: pointer;
       border: 2px solid #ff0000;
     }
+
+    ${({ isvalidsquare }) => {
+      if (!isvalidsquare) {
+        return `
+          border: 2px solid #ff0000;
+        `;
+      }
+    }}
   `,
 
   Number: styled.p`

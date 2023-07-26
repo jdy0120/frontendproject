@@ -1,16 +1,25 @@
 import React, { useEffect } from "react";
 import { NumberSquareStyle } from "./NumberSquare.styles";
 import ChoseNumber from "../chosenumber/ChoseNumber";
+import { notValidNumber } from "../../utils/number.check";
 
 interface Props {
   number: number;
   boxIndex: number;
+  sudoku: number[];
   setNumber: (id: number) => void;
 }
 
-const NumberSquare = ({ number, boxIndex, setNumber }: Props) => {
+const NumberSquare = ({
+  number,
+  boxIndex,
+  sudoku,
+  setNumber,
+}: Props) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const [open, setOpen] = React.useState(false);
+  const [isValidSquare, setIsValidSquare] =
+    React.useState<boolean>(true);
 
   const row = Math.floor(boxIndex / 9);
   const col = boxIndex % 9;
@@ -44,11 +53,20 @@ const NumberSquare = ({ number, boxIndex, setNumber }: Props) => {
       document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (!notValidNumber(sudoku, boxIndex)) {
+      setIsValidSquare(false);
+    } else {
+      setIsValidSquare(true);
+    }
+  }, [number]);
+
   return (
     <NumberSquareStyle.Container
       ref={ref}
       onClick={handleClick}
       borderStyles={borderStyles}
+      isvalidsquare={isValidSquare}
       isOpen={open}
     >
       <NumberSquareStyle.Number>{number}</NumberSquareStyle.Number>
